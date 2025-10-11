@@ -10,6 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pushswap.h"
+
+int	stack_length(t_stack *stack)
+{
+	t_node	*curr;
+	int		count;
+
+	if (stack == NULL || stack->head == NULL)
+		return (0);
+	count = 1;
+	curr = stack->head->next;
+	while (curr != stack->head)
+	{
+		curr = curr->next;
+		count++;
+	}
+	return (count);
+}
+
 void	sa(t_stack *stack)
 {
 	t_node	*first;

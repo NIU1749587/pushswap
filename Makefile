@@ -1,42 +1,46 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
 
-NAME = push_swap
+NAME = pushswap
 
-SRC_DIR = src
-SRCS = $(SRC_DIR)/bring_to_top.c $(SRC_DIR)/calculate_median.c $(SRC_DIR)/find_max_pos.c $(SRC_DIR)/free.c $(SRC_DIR)/min_to_top.c $(SRC_DIR)/parse_numbers.c $(SRC_DIR)/push.c $(SRC_DIR)/push_swap.c $(SRC_DIR)/reverse_rotate.c $(SRC_DIR)/rotate.c $(SRC_DIR)/sort.c $(SRC_DIR)/stack_length.c $(SRC_DIR)/swap.c $(SRC_DIR)/validations.c $(SRC_DIR)/atoi.c 
+SOURCE = bring_to_top.c\
+				calculate_median.c\
+				find_max_and_min.c\
+				main.c\
+				parse_num.c\
+				push.c\
+				revrotate.c\
+				rotate.c\
+				sort.c\
+				swap.c
 
-LIBFT_DIR = ./libft
+OBJ = $(SOURCE:%.c=%.o)
 
+AR = ar -rc
+
+CFLAGS = -Wall -Werror -Wextra
+
+LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
-
-INCLUDES = -I. -I$(LIBFT_DIR)
-
-OBJS = $(SRCS:.c=.o)
-
-# Recompila los .o si Makefile cambia
-$(OBJS): Makefile
-
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 all: $(NAME)
 
-
-$(NAME): $(OBJS) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS) $(LIBFT_A)
+$(NAME): $(OBJ) $(LIBFT_A)
+	$(AR) $(NAME) $(OBJ)
+	
+%.o: %.c pushswap.h Makefile
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 $(LIBFT_A):
 	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJS)
+	rm -f $(OBJ)
+	$(MAKE) -sC $(LIBFT_DIR) clean
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
+	$(MAKE) -sC $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all fclean clean re

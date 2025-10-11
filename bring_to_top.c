@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bring_to_top.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfuster <gfuster@student.42barcelona.      +#+  +:+       +#+        */
+/*   By: aiguerre <aiguerre@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 15:29:25 by gfuster           #+#    #+#             */
-/*   Updated: 2025/09/27 15:30:19 by gfuster          ###   ########.fr       */
+/*   Created: 2025/10/11 10:41:45 by aiguerre          #+#    #+#             */
+/*   Updated: 2025/10/11 10:41:53 by aiguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "pushswap.h"
 
 void	bring_max_to_top(t_stack *stackB)
 {

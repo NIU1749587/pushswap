@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aiguerre <aiguerre@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 15:14:59 by aiguerre          #+#    #+#             */
-/*   Updated: 2025/10/05 15:15:13 by aiguerre         ###   ########.fr       */
+/*   Created: 2025/10/05 15:15:57 by aiguerre          #+#    #+#             */
+/*   Updated: 2025/10/05 15:16:12 by aiguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ra(t_stack *stack)
+void	rra(t_stack *stack)
 {
 	if (!stack || !stack->head || stack->head->next == stack->head)
 		return ;
-	stack->head = stack->head->next;
-	stack->tail = stack->tail->next;
-	write(1, "ra\n", 3);
+	stack->head = stack->head->prev;
+	stack->tail = stack->tail->prev;
+	write(1, "rra\n", 4);
 }
 
-void	rb(t_stack *stack)
+void	rrb(t_stack *stack)
 {
 	if (!stack || !stack->head || stack->head->next == stack->head)
 		return ;
-	stack->head = stack->head->next;
-	stack->tail = stack->tail->next;
-	write(1, "rb\n", 3);
+	stack->head = stack->head->prev;
+	stack->tail = stack->tail->prev;
+	write(1, "rrb\n", 4);
 }
 
-void	rr(t_stack *stackA, t_stack *stackB)
+void	rrr(t_stack *stackA, t_stack *stackB)
 {
-	ra(stackA);
-	rb(stackB);
-	write(1, "rr\n", 3);
+	rra(stackA);
+	rrb(stackB);
+	write(1, "rrr\n", 4);
 }

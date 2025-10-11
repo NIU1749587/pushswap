@@ -3,37 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfuster <gfuster@student.42barcelona.      +#+  +:+       +#+        */
+/*   By: aiguerre <aiguerre@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 15:36:48 by gfuster           #+#    #+#             */
-/*   Updated: 2025/09/27 15:39:43 by gfuster          ###   ########.fr       */
+/*   Created: 2025/10/11 10:44:53 by aiguerre          #+#    #+#             */
+/*   Updated: 2025/10/11 10:44:59 by aiguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-
-void	sort_numbers(int argc, t_stack *stackA, t_stack *stackB)
-{
-	if (!stackA || !stackA->head)
-		exit(2);
-	if (argc == 4)
-		sort_three(stackA);
-	else if (argc == 6 || argc == 5)
-		sort_five(stackA, stackB);
-	else if (argc == 2 || argc > 6)
-	{
-		while (stack_length(stackA) > 2)
-		{
-			move_lowers_to_b(stackA, stackB);
-		}
-		if (stackA->head->x > stackA->head->next->x)
-			sa(stackA);
-	}
-	while (stackB->head != NULL)
-	{
-		bring_to_top(stackA, stackB);
-	}
-}
+#include "pushswap.h"
 
 void	sort_three(t_stack *stack)
 {
@@ -71,6 +48,29 @@ void	sort_five(t_stack *stackA, t_stack *stackB)
 	sort_three(stackA);
 	pa(stackA, stackB);
 	pa(stackA, stackB);
+}
+
+void	sort_num(int argc, t_stack *stackA, t_stack *stackB)
+{
+	if (!stackA || !stackA->head)
+		exit(2);
+	if (argc == 4)
+		sort_three(stackA);
+	else if (argc == 6 || argc == 5)
+		sort_five(stackA, stackB);
+	else if (argc == 2 || argc > 6)
+	{
+		while (stack_length(stackA) > 2)
+		{
+			move_lowers_to_b(stackA, stackB);
+		}
+		if (stackA->head->x > stackA->head->next->x)
+			sa(stackA);
+	}
+	while (stackB->head != NULL)
+	{
+		bring_to_top(stackA, stackB);
+	}
 }
 
 void	move_lowers_to_b(t_stack *stackA, t_stack *stackB)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_median.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfuster <gfuster@student.42barcelona.      +#+  +:+       +#+        */
+/*   By: aiguerre <aiguerre@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 15:58:12 by gfuster           #+#    #+#             */
-/*   Updated: 2025/09/27 16:38:47 by gfuster          ###   ########.fr       */
+/*   Created: 2025/10/11 10:41:59 by aiguerre          #+#    #+#             */
+/*   Updated: 2025/10/11 10:42:06 by aiguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "pushswap.h"
 
 int	get_median(t_stack *stack)
 {

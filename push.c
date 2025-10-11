@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pushswap.h"
+
 static t_node	*extract_top(t_stack *stack)
 {
 	t_node	*top;
@@ -48,17 +50,6 @@ static void	insert_top(t_stack *stack, t_node *node)
 	}
 }
 
-void	pb(t_stack *stackA, t_stack *stackB)
-{
-	t_node	*top;
-
-	if (!stackA->head)
-		return ;
-	top = extract_top(stackA);
-	insert_top(stackB, top);
-	write(1, "pb\n", 3);
-}
-
 void	pa(t_stack *stackA, t_stack *stackB)
 {
 	t_node	*top;
@@ -68,4 +59,15 @@ void	pa(t_stack *stackA, t_stack *stackB)
 	top = extract_top(stackB);
 	insert_top(stackA, top);
 	write(1, "pa\n", 3);
+}
+
+void	pb(t_stack *stackA, t_stack *stackB)
+{
+	t_node	*top;
+
+	if (!stackA->head)
+		return ;
+	top = extract_top(stackA);
+	insert_top(stackB, top);
+	write(1, "pb\n", 3);
 }
